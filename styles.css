@@ -425,41 +425,79 @@ h1 {
   background: var(--green);
 }
 
-.detail-row {
+.atelier-lead {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 14px;
-  max-width: 920px;
-  margin: 36px auto 0;
+  grid-template-columns: minmax(260px, 0.82fr) minmax(0, 1.18fr);
+  gap: 18px;
+  align-items: stretch;
 }
 
-.detail-row figure { grid-column: span 2; }
+.atelier-copy {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
 
-.detail-row figure:nth-child(4) { grid-column: 2 / span 2; }
+.atelier-copy h2 {
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+}
 
-.detail-row figure:nth-child(5) { grid-column: 4 / span 2; }
+.atelier-copy > p:last-of-type {
+  margin-top: 14px;
+  color: var(--muted);
+}
 
-.detail-row figure {
+.atelier-portrait,
+.atelier-feature,
+.atelier-wide figure,
+.atelier-mix figure {
   margin: 0;
   overflow: hidden;
   border-radius: 28px;
   background: #e5e3e2;
 }
 
-.detail-row img {
+.atelier-portrait img,
+.atelier-feature img,
+.atelier-wide img,
+.atelier-mix img {
   width: 100%;
-  aspect-ratio: 4 / 5;
+  height: 100%;
   object-fit: cover;
-  object-position: center 42%;
 }
 
-.detail-row .detail-side { object-position: 68% center; }
+.atelier-portrait img {
+  aspect-ratio: 4 / 5;
+  object-position: center 18%;
+}
 
-.mosaic {
+.atelier-feature {
+  margin-top: auto;
+  padding-top: 22px;
+}
+
+.atelier-feature img,
+.atelier-wide img {
+  aspect-ratio: 3 / 2;
+  object-position: center;
+}
+
+.atelier-wide,
+.atelier-mix {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 14px;
+  margin-top: 14px;
 }
+
+.atelier-wide { grid-template-columns: 1fr 1fr; }
+
+.atelier-mix { grid-template-columns: repeat(4, 1fr); }
+
+.atelier-mix img { aspect-ratio: 3 / 4; }
+
+.atelier-mix .is-face img { object-position: center 16%; }
+
+.atelier-mix .is-work img { object-position: center 45%; }
 
 .frame {
   position: relative;
@@ -645,7 +683,7 @@ details a {
   .hero-visual { max-width: 520px; }
   .about-panel,
   .cards,
-  .mosaic { grid-template-columns: 1fr 1fr; }
+  .atelier-mix { grid-template-columns: 1fr 1fr; }
   .about-panel { gap: 22px; padding: 16px; }
   .step + .step { padding-left: 0; border-left: 0; }
   .final-inner { align-items: flex-start; flex-direction: column; }
@@ -661,24 +699,22 @@ details a {
   .hero-grid,
   .cards,
   .step-list,
-  .mosaic,
   .about-panel,
+  .atelier-lead,
+  .atelier-wide,
   .trust { grid-template-columns: 1fr; }
+  .atelier-copy { order: -1; }
   .hero-note { left: 14px; bottom: 14px; }
   .block { padding: 64px 0; }
-  .mosaic { grid-template-columns: 1fr; gap: 12px; }
-  .detail-row { grid-template-columns: 1fr 1fr; }
-  .detail-row figure,
-  .detail-row figure:nth-child(4),
-  .detail-row figure:nth-child(5) { grid-column: auto; }
   .frame,
   .carousel-track,
-  .detail-row figure { border-radius: 18px; }
+  .atelier-portrait,
+  .atelier-feature,
+  .atelier-wide figure,
+  .atelier-mix figure { border-radius: 18px; }
   .carousel-btn { width: 36px; height: 36px; }
   .fallback { padding: 14px; }
-  .fallback em,
-  .mosaic .fallback span { display: none; }
-  .mosaic .fallback strong { font-size: 1.05rem; }
+  .fallback em { display: none; }
   .about-panel { border-radius: 24px; }
   .final { padding-bottom: 48px; }
   .final-inner { padding: 28px 22px; border-radius: 24px; }
