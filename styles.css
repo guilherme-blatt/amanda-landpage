@@ -206,6 +206,8 @@ h1 {
   background: linear-gradient(to bottom, rgba(16, 36, 30, 0.55), rgba(16, 36, 30, 0) 52%);
 }
 
+.hero-visual .frame { z-index: 1; }
+
 .hero-visual::before {
   content: "";
   position: absolute;
@@ -213,8 +215,8 @@ h1 {
   width: 72%;
   aspect-ratio: 1;
   right: -6%;
-  top: -8%;
-  background: var(--moss);
+  top: -3%;
+  background: url("degrade.jpg") center / cover no-repeat;
   border-radius: 50%;
 }
 
@@ -270,13 +272,11 @@ h1 {
 .section-head { max-width: 38rem; margin-bottom: 32px; }
 
 .section-head h2,
-.steps h2,
 .final h2 {
   font-size: clamp(2.1rem, 4vw, 3.4rem);
 }
 
 .section-head p,
-.steps .intro,
 .final p {
   margin-top: 14px;
   color: var(--muted);
@@ -306,42 +306,6 @@ h1 {
 }
 
 .card p { color: var(--muted); }
-
-.steps {
-  background: var(--green);
-  color: #f7f5f5;
-}
-
-.steps .kicker { color: #d7e7f1; }
-
-.steps .intro { max-width: 36rem; color: rgba(247, 245, 245, 0.78); }
-
-.step-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 40px;
-}
-
-.step + .step { padding-left: 28px; border-left: 1px solid rgba(255, 255, 255, 0.16); }
-
-.step-index {
-  display: block;
-  margin-bottom: 12px;
-  font-family: var(--serif);
-  font-size: 1.25rem;
-  color: #d7e7f1;
-}
-
-.step h3 {
-  margin-bottom: 8px;
-  font-size: 1.7rem;
-  color: #f7f5f5;
-}
-
-.step p { color: rgba(247, 245, 245, 0.78); }
-
-.steps .actions { margin-top: 36px; }
 
 .carousel {
   max-width: 560px;
@@ -677,15 +641,13 @@ details a {
 @media (max-width: 980px) {
   .btn-long { display: none; }
   .btn-short { display: inline; }
-  .hero-grid,
-  .step-list { grid-template-columns: 1fr; }
+  .hero-grid { grid-template-columns: 1fr; }
   .hero-grid { gap: 28px; }
   .hero-visual { max-width: 520px; }
   .about-panel,
   .cards,
   .atelier-mix { grid-template-columns: 1fr 1fr; }
   .about-panel { gap: 22px; padding: 16px; }
-  .step + .step { padding-left: 0; border-left: 0; }
   .final-inner { align-items: flex-start; flex-direction: column; }
   .final .actions { margin-top: 8px; }
   .final h2 { max-width: none; }
@@ -698,7 +660,6 @@ details a {
   .hero { padding-top: 28px; }
   .hero-grid,
   .cards,
-  .step-list,
   .about-panel,
   .atelier-lead,
   .atelier-wide,
